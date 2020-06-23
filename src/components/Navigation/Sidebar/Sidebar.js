@@ -5,7 +5,7 @@ import NavigationItems from '../NavigationItems/NavigationItems';
 import classes from './Sidebar.module.css';
 
 import Backdrop from '../../UI/Backdrop/Backdrop';
-import Auxiliary from '../../../hoc/Auxiliary';
+import Auxiliary from '../../../hoc/Auxiliary/Auxiliary';
 
 const sidebar = (props) => {
     let attachedClasses = [classes.Sidebar, classes.Close];
