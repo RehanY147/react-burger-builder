@@ -40,9 +40,9 @@ class BurgerBuilder extends Component {
     axios
       .get('https://react-my-burger-3889b.firebaseio.com/ingredients.json')
       .then((response) => {
-        this.setState({ ingredients: { ...response.data } });
+        this.setState({ ingredients: response.data });
       })
-      .catch((error) => {
+      .catch((e) => {
         this.setState({ error: true });
       });
   }
@@ -122,11 +122,13 @@ class BurgerBuilder extends Component {
     }
     let orderSummary = null;
 
-    let burger = this.state.error ? (
-      <p>Ingredients can't be loaded</p>
-    ) : (
-      <Spinner />
-    );
+    let burger = null;
+    if (this.state.error) {
+      burger = <p>Ingredients can't be loaded</p>;
+    } else {
+      burger = <Spinner />;
+    }
+
     if (this.state.ingredients) {
       burger = (
         <Auxiliary>
